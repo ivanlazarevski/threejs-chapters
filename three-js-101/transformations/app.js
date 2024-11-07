@@ -109,6 +109,7 @@ group.add(cube3);
 
 group.position.y = -1;
 group.scale.y = 1.2;
+
 scene.add(group);
 
 // Vector length to another object. Method argument is of type Vector3.

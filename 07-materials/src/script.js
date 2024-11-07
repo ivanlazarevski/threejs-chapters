@@ -189,9 +189,9 @@ material.alphaMap = doorAlphaTexture;
 // material.iridescenceIOR = 1; //
 // material.iridescenceThicknessRange = [100, 800];
 
-material.transmission = 1; // Transparency, but the thing behind is deformed. Like through glass.
-material.transmissionIOR = 1.5;
-material.thickness = 0.5;
+// material.transmission = 1; // Transparency, but the thing behind is deformed. Like through glass.
+// material.transmissionIOR = 1.5;
+material.thickness = 0;
 
 gui.add(material, "metalness").min(0).max(1).step(0.0001);
 gui.add(material, "roughness").min(0).max(1).step(0.0001);
@@ -232,13 +232,13 @@ const tick = () => {
   const elapsedTime = clock.getElapsedTime();
 
   // Update objects
-  sphere.rotation.y = 0.1 * elapsedTime;
-  plane.rotation.y = 0.1 * elapsedTime;
-  torus.rotation.y = 0.1 * elapsedTime;
-
-  sphere.rotation.x = -0.15 * elapsedTime;
-  plane.rotation.x = -0.15 * elapsedTime;
-  torus.rotation.x = -0.15 * elapsedTime;
+  // sphere.rotation.y = 0.1 * elapsedTime;
+  // plane.rotation.y = 0.1 * elapsedTime;
+  // torus.rotation.y = 0.1 * elapsedTime;
+  //
+  // sphere.rotation.x = -0.15 * elapsedTime;
+  // plane.rotation.x = -0.15 * elapsedTime;
+  // torus.rotation.x = -0.15 * elapsedTime;
 
   // Update controls
   controls.update();

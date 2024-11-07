@@ -7,40 +7,55 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 const canvas = document.querySelector("canvas.webgl");
 const scene = new THREE.Scene();
 const sizes = {
-    width: window.innerWidth,
-    height: window.innerHeight,
+  width: window.innerWidth,
+  height: window.innerHeight,
 };
 window.addEventListener("resize", () => {
-    // Update sizes
-    sizes.width = window.innerWidth;
-    sizes.height = window.innerHeight;
+  // Update sizes
+  sizes.width = window.innerWidth;
+  sizes.height = window.innerHeight;
 
-    // Update camera
-    camera.aspect = sizes.width / sizes.height;
-    camera.updateProjectionMatrix();
+  // Update camera
+  camera.aspect = sizes.width / sizes.height;
+  camera.updateProjectionMatrix();
 
-    // Update renderer
-    renderer.setSize(sizes.width, sizes.height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  // Update renderer
+  renderer.setSize(sizes.width, sizes.height);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 });
 
 /**
  * [Basic Object]
  */
-const mesh = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1, 5, 5, 5), new THREE.MeshBasicMaterial({ color: 0xffabac }));
+const mesh = new THREE.Mesh(
+  new THREE.BoxGeometry(1, 1, 1, 5, 5, 5),
+  new THREE.MeshBasicMaterial({ color: 0xffabac }),
+);
 scene.add(mesh);
 
 /**
  * [Perspective Camera]
  */
-let camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
+let camera = new THREE.PerspectiveCamera(
+  75,
+  sizes.width / sizes.height,
+  0.1,
+  100,
+);
 
 /**
  * [Orthographic Camera]
  */
 // Multiply the aspect ratio by the horizontal axis
 const aspectRatio = sizes.width / sizes.height;
-camera = new THREE.OrthographicCamera(-1 * aspectRatio, 1 * aspectRatio, 1, -1, 0.1, 100);
+camera = new THREE.OrthographicCamera(
+  -1 * aspectRatio,
+  1 * aspectRatio,
+  1,
+  -1,
+  0.1,
+  100,
+);
 camera.position.z = 3;
 camera.lookAt(mesh.position);
 scene.add(camera);
@@ -56,19 +71,19 @@ orbitControls.enableDamping = true;
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({
-    canvas: canvas,
+  canvas: canvas,
 });
 renderer.setSize(sizes.width, sizes.height);
 
 const tick = () => {
-    // Whenever you manually change the camera transform, you must call update()
-    orbitControls.update();
+  // Whenever you manually change the camera transform, you must call update()
+  orbitControls.update();
 
-    // Render
-    renderer.render(scene, camera);
+  // Render
+  renderer.render(scene, camera);
 
-    // Call tick again on the next frame
-    window.requestAnimationFrame(tick);
+  // Call tick again on the next frame
+  window.requestAnimationFrame(tick);
 };
 
 tick();

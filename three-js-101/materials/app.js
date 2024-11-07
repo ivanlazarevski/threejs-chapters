@@ -45,21 +45,21 @@ controls.enableDamping = true;
 // [Textures]
 const textureLoader = new THREE.TextureLoader();
 
-const doorColorTexture = textureLoader.load("./textures/door/color.jpg");
-const doorAlphaTexture = textureLoader.load("./textures/door/alpha.jpg");
-const doorAmbientOcclusionTexture = textureLoader.load("./textures/door/ambientOcclusion.jpg");
-const doorHeightTexture = textureLoader.load("./textures/door/height.jpg");
-const doorNormalTexture = textureLoader.load("./textures/door/normal.jpg");
-const doorMetalnessTexture = textureLoader.load("./textures/door/metalness.jpg");
-const doorRoughnessTexture = textureLoader.load("./textures/door/roughness.jpg");
-const matcapTexture = textureLoader.load("./textures/matcaps/5.png");
-const gradientTexture = textureLoader.load("./textures/gradients/5.jpg");
+const doorColorTexture = textureLoader.load("./static/textures/door/color.jpg");
+const doorAlphaTexture = textureLoader.load("./static/textures/door/alpha.jpg");
+const doorAmbientOcclusionTexture = textureLoader.load("./static/textures/door/ambientOcclusion.jpg");
+const doorHeightTexture = textureLoader.load("./static/textures/door/height.jpg");
+const doorNormalTexture = textureLoader.load("./static/textures/door/normal.jpg");
+const doorMetalnessTexture = textureLoader.load("./static/textures/door/metalness.jpg");
+const doorRoughnessTexture = textureLoader.load("./static/textures/door/roughness.jpg");
+const matcapTexture = textureLoader.load("./static/textures/matcaps/5.png");
+const gradientTexture = textureLoader.load("./static/textures/gradients/5.jpg");
 
 doorColorTexture.colorSpace = THREE.SRGBColorSpace;
-matcapTexture.colorSpace = THREE.SRGBColorSpace;
+// matcapTexture.colorSpace = THREE.SRGBColorSpace;
 
 const rgbeLoader = new RGBELoader();
-rgbeLoader.load("./textures/environmentMap/2k.hdr", (environmentMap) => {
+rgbeLoader.load("./static/textures/environmentMap/2k.hdr", (environmentMap) => {
     environmentMap.mapping = THREE.EquirectangularReflectionMapping;
     scene.background = environmentMap;
     scene.environment = environmentMap;
@@ -94,7 +94,7 @@ material = new THREE.MeshNormalMaterial();
  * [Mesh Matcap Material]
  */
 material = new THREE.MeshMatcapMaterial();
-material.matcap = matcapTexture;
+// material.matcap = matcapTexture;
 
 /**
  * [Mesh Depth Material]
@@ -134,10 +134,10 @@ material.specular = new THREE.Color(0x1188ff);
  */
 
 material = new THREE.MeshToonMaterial();
-material.gradientMap = gradientTexture;
-gradientTexture.minFilter = THREE.NearestFilter;
-gradientTexture.magFilter = THREE.NearestFilter;
-gradientTexture.generateMipmaps = false;
+// material.gradientMap = gradientTexture;
+// gradientTexture.minFilter = THREE.NearestFilter;
+// gradientTexture.magFilter = THREE.NearestFilter;
+// gradientTexture.generateMipmaps = false;
 
 /**
  * [Mesh Standard Material]
@@ -230,16 +230,6 @@ const clock = new THREE.Clock();
 
 const tick = () => {
     const elapsedTime = clock.getElapsedTime();
-
-    // Update objects
-    sphere.rotation.y = 0.1 * elapsedTime;
-    plane.rotation.y = 0.1 * elapsedTime;
-    torus.rotation.y = 0.1 * elapsedTime;
-
-    sphere.rotation.x = -0.15 * elapsedTime;
-    plane.rotation.x = -0.15 * elapsedTime;
-    torus.rotation.x = -0.15 * elapsedTime;
-
     // Update controls
     controls.update();
 

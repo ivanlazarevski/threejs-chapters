@@ -41,7 +41,7 @@ loadingManager.onError = () => {
 };
 
 // Loading Textures
-const colorTexture = textureLoader.load("/textures/minecraft.png");
+const colorTexture = textureLoader.load("/textures/door/color.jpg");
 const alphaTexture = textureLoader.load("/textures/door/alpha.jpg");
 const heightTexture = textureLoader.load("/textures/door/height.jpg");
 const normalTexture = textureLoader.load("/textures/door/normal.jpg");
@@ -68,7 +68,8 @@ colorTexture.colorSpace = THREE.SRGBColorSpace;
  * [Object]
  */
 const geometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshBasicMaterial({ map: colorTexture });
+const material = new THREE.MeshBasicMaterial({ map: colorTexture, alphaMap: alphaTexture, aoMap: ambientOcclusion });
+
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
 

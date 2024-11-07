@@ -119,13 +119,11 @@ directionalLight.shadow.camera.bottom = -2;
 
 // Blur (Just a general blur)
 directionalLight.shadow.radius = 10;
-
 // Shadow Map Algorithm
-// THREE.BasicShadowMap
 // THREE.BasicShadowMap
 // THREE.PCFSoftShadowMap Usually go for this, if you wanna make it look better
 // THREE.VSMShadowMap
-renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Radius doesnt work with PCF
+// renderer.shadowMap.type = THREE.BasicShadowMap; // Radius doesnt work with PCF
 
 
 /**

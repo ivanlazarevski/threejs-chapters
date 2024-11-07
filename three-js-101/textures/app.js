@@ -41,13 +41,13 @@ loadingManager.onError = () => {
 };
 
 // Loading Textures
-const colorTexture = textureLoader.load("/textures/minecraft.png");
-const alphaTexture = textureLoader.load("/textures/door/alpha.jpg");
-const heightTexture = textureLoader.load("/textures/door/height.jpg");
-const normalTexture = textureLoader.load("/textures/door/normal.jpg");
-const ambientOcclusion = textureLoader.load("/textures/door/ambientOcclusion.jpg");
-const metalnessTexture = textureLoader.load("/textures/door/metalness.jpg");
-const roughnessTexure = textureLoader.load("/textures/door/roughness.jpg");
+const colorTexture = textureLoader.load("./static/textures/door/color.jpg");
+const alphaTexture = textureLoader.load("./static/textures/door/alpha.jpg");
+const heightTexture = textureLoader.load("./static/textures/door/height.jpg");
+const normalTexture = textureLoader.load("./static/textures/door/normal.jpg");
+const ambientOcclusion = textureLoader.load("./static/textures/door/ambientOcclusion.jpg");
+const metalnessTexture = textureLoader.load("./static/textures/door/metalness.jpg");
+const roughnessTexure = textureLoader.load("./static/textures/door/roughness.jpg");
 
 // colorTexture.repeat.x = 2;
 // colorTexture.repeat.y = 3;

@@ -48,6 +48,7 @@ const tick = () => {
     // Time & Delta Time
     // ThreeJS has a built in solution called Clock
     const elapsedTime = clock.getElapsedTime();
+    console.log(elapsedTime);
 
     // mesh.rotation.y = elapsedTime;
     // mesh.rotation.z = elapsedTime;
